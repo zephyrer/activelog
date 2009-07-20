@@ -1,0 +1,53 @@
+/*******************************************************************
+		
+ ActiveLog is a utility developed by VATech Systems 
+ Copyright (C) 2006 - 2009 VATech Systems.
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+ You can contact VATech Systems at email address info@vatechsystems.com.
+
+***********************************************************************/
+
+// VAALOG.idl : type library source for VAALOG.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (VAALOG.tlb).
+
+//
+[ uuid(C658A703-E1FA-43B5-9536-04200A186BE1), version(1.0) ]
+library VAALOG
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for ActiveLog
+	
+	[ uuid(F5BB9079-4A35-414C-A785-E774BDBB17EE) ]
+	dispinterface IActiveLog
+	{
+		properties:
+			
+		methods:
+			[id(1), helpstring("method LogData")] SHORT LogData(BSTR xData, BSTR xLabel);
+	};
+
+	//  Class information for ActiveLog
+	
+	[ uuid(0ACCCD94-CC09-46C2-803D-CB303F25C583) ]
+	coclass ActiveLog
+	{
+		[default] dispinterface IActiveLog;
+	};
+};
